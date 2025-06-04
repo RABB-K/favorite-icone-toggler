@@ -1,0 +1,32 @@
+.item-list {
+    list-style: none;
+    padding: 0;
+  }
+  h1{
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .item-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    margin-left: 5em
+  }
+  
+  
+  
+  .favorite-icon {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #497c16;
+    margin-right: 3em;
+  
+  }
+  
+  .filled {
+    color: gold;
+  }
