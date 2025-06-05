@@ -1,32 +1,65 @@
+/* Container for the list */
 .item-list {
-    list-style: none;
-    padding: 0;
-  }
-  h1{
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  .item-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    margin-left: 5em
-  }
-  
-  
-  
-  .favorite-icon {
-    background: none;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: #497c16;
-    margin-right: 3em;
-  
-  }
-  
-  .filled {
-    color: gold;
-  }
+  list-style: none;
+  padding: 0;
+  max-width: 600px;        
+  margin: 50px auto;       
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Nice readable font */
+}
+
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+
+.item-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  margin-left: 0;          
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+  border-radius: 6px;
+}
+
+.item-list li:hover {
+  background-color: #f0f8ff; /* Light hover effect for better UX */
+}
+
+/* Favorite icon button */
+.favorite-icon {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #497c16;
+  margin-right: 0;
+  transition: color 0.3s ease, transform 0.2s ease;
+  outline: none;
+  padding: 4px;
+  border-radius: 50%;
+}
+
+
+.favorite-icon:hover {
+  color: #6fa22f;
+  transform: scale(1.1);
+}
+
+
+.filled {
+  color: gold;
+  filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.7));
+}
+
+/* Focus styles for accessibility */
+.favorite-icon:focus {
+  outline: 2px solid #ebe708;
+  outline-offset: 2px;
+}
+

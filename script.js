@@ -1,12 +1,32 @@
-const icons = document.querySelectorAll('.favorite-icon');
+const favoriteButtons = document.querySelectorAll('.favorite-icon');
 
-icons.forEach(button=>{
-  button.addEventListener('click',()=>{
-    if(button.classList.contains('filled')){
-      button.classList.remove('filled');
-      button.innerHTML = "&#9825"; // Empty heart
+// Load saved favorite names (like ["120 gm paper", "Watercolor set"])
+let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+// Loop through each button
+favoriteButtons.forEach(btn => {
+  const itemName = btn.dataset.name; // get item name from data attribute
+
+  // Check if this item is in favorites
+  if (favorites.includes(itemName)) {
+    btn.classList.add('filled');
+  }
+
+  // Add click event
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('filled');
+
+    if (btn.classList.contains('filled')) {
+      // Add item name to favorites if not already there
+      if (!favorites.includes(itemName)) {
+        favorites.push(itemName);
+      }
+    } else {
+      // Remove it if it's being un-favorited
+      favorites = favorites.filter(name => name !== itemName);
     }
-    else{ button.classList.add('filled');
-    button.innerHTML = "&#10084";} // filled Heart
+
+    // Save updated favorites
+    localStorage.setItem('favorites', JSON.stringify(favorites));
   });
 });
